@@ -1,0 +1,18 @@
+---
+title: "From Description to Ensemble"
+author: "Robert Castellano, Yannick Kimmel, Wanda Wang, Ho Fai Wong"
+output: 
+  beamer_presentation:
+    theme: "Berkeley"
+---
+
+#First section title
+
+#Second section title
+
+## Slide Title
+> - Paused bullets
+
+\pause
+Insert an image
+![Caption](Images/Higgs.jpg)
