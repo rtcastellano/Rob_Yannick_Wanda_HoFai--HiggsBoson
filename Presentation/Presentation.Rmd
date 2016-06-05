@@ -5,32 +5,51 @@ output:
   beamer_presentation:
     theme: "Berkeley"
 ---
-\includegraphics[scale = .15]{Images/Higgs.jpg}
+\begin{center}
+\includegraphics[scale = .13]{Images/Higgs.jpg}
+\end{center}
 
 
 #Exploratory data analysis
 ##Sparse dataset
-\includegraphics[scale = .8]{Images/missingnessandjets.jpg}
-> -  Jet number can be treated as a factor for missingness
+\begin{center}
+\includegraphics[scale = .4]{Images/missingnessandjets.jpg}
+\end{center}
+
+> - Jet number can be treated as a factor for missingness.
 
 ##Principal component analysis
-\includegraphics[scale = .8]{Images/PC1PC2.jpeg}
-\includegraphics[scale = .8]{Images/PCAanalysis.png}
-> -  PCA shows that derived mass and label have a very strong relationship.
+\begin{center}
+\includegraphics[scale = .33]{Images/PC1PC2.jpeg}
+
+\includegraphics[scale = .33]{Images/PCAanalysis.png}
+\end{center}
+
+> - PCA shows that derived mass and label have a very strong relationship.
 
 ##Mass as a predictor of Higgs Boson presence
-\includegraphics[scale = .8]{Images/sciencemass.png}
-\includegraphics[scale = .8]{Images/density.jpeg}
-> -  Derived mass of Higgs Boson is different from other Bosons and subatomic particles
-> -  Simulated dataset increases signal, and must be offset using weights
+\begin{center}
+\includegraphics[scale = .35]{Images/sciencemass.png}
+\includegraphics[scale = .35]{Images/density.jpeg}
+\end{center}
+
+> - Derived mass of Higgs Boson is different from other Bosons and subatomic particles.
+> - Simulated dataset increases signal, and must be offset using weights.
 
 ##Correlation matrix
-\includegraphics[scale = .8]{Images/corrplot.png}
-> -  There are several variables with strong covariance among the 33 variables. 
+\begin{center}
+\includegraphics[scale = .5]{Images/corrplot.png}
+\end{center}
 
-##Choice of AUC as model fit metric 
-\includegraphics[scale = .8]{Images/RF AUC plot.jpeg}
-> -  Maximizes the true positive rate while also minimizes the false positive rate. 
+> - There are several variables with strong covariance among the 33 variables. 
+
+##Choice of AUC as model fit metric
+\begin{center}
+\includegraphics[scale = .4]{Images/RF_AUC_plot.jpeg}
+\end{center}
+
+> - Maximizes the true positive rate while also minimizes the false positive rate. 
+> - Produces a smooth and continuous function unlike AMS.
 
 
 #Models
@@ -53,6 +72,36 @@ output:
   \item 20% of training data for mtry gride of 1, 2, 3, 6, 9
   \item 80% of training data for mtry gride of 4, 5, 6, 7, 8
   \item mtry = 5
+\end{itemize}
+\pause
+\item AUC on training data = .9071
+\item Kaggle rank = 1311
+\item AMS = 2.57949
+\end{itemize}
+
+##Random forest variable importance
+
+\includegraphics[scale = .6]{Images/rfvarimp.jpeg}
+
+##Gbm model
+
+\begin{itemize}
+\item Gradient boosting model
+\pause
+\item Tuning parameters
+\begin{itemize}
+  \item shrinkage: Learning rate
+  \item interaction\_depth: Depth of variable interactions
+  \item n.trees: Number of trees
+  \item n.minobsinnode: Minimum number of observations in a terminal node
+\end{itemize}
+\pause
+\item Performed 5-fold CV to tune parameters.
+\begin{itemize}
+  \item shrinkage = .1
+  \item interaction\_depth = 3
+  \item n.trees = 150
+  \item n.minobsinnode = 10
 \end{itemize}
 \pause
 \item AUC on training data = .9071
