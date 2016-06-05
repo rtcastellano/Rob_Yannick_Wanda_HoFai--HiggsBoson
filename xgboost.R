@@ -226,6 +226,11 @@ xgb_train_5 = train(
 bst = xgb_train_5$finalModel
 importance_matrix = xgb.importance(feature_names = colnames(higgs.train.dummy), model = bst)
 
+ggplot(importance_matrix, aes(reorder(x = Feature, Gain), y = Gain)) + 
+  geom_bar(aes(fill = 1), stat = "identity") + coord_flip() +
+  ylab("Variable importance") + xlab("Features") + ggtitle("Variable importance for xgboost") +
+  guides(fill = F)
+
 #Predicting training data
 xgmat.train <- xgb.DMatrix(as.matrix(higgs.train.dummy), 
                            label = as.numeric(higgs.labels == "X0"),
@@ -247,6 +252,9 @@ xgboostTestPred <- predict(bst, newdata=xgmat.test)
 predicted <- rep("s",550000)
 predicted[xgboostTestPred>=threshold] <- "b"
 weightRank = rank(xgboostTestPred, ties.method= "random")
+
+write.csv(as.data.frame(xgboostTestPred), "Submissions/xgboost_prob.csv")
+write.csv(as.data.frame(higgs.testId), "Submissions/EventID.csv")
   
 submission = data.frame(EventId = higgs.testId, RankOrder = weightRank, Class = predicted)
 write.csv(submission, "xgboost_submission.csv", row.names=FALSE)

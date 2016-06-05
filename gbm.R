@@ -8,8 +8,9 @@
 #############################
 
 # Read data and mark 999.0 as 0s
-dfTrain <- read.csv('./data/training.csv', header=T)
-dfTest <- read.csv('./data/test.csv', header=T)
+
+dfTrain <- read.csv('~/NYCDSA/Bootcamp/Kaggle_Project4/data/training.csv', header=T)
+dfTest <- read.csv('~/NYCDSA/Bootcamp/Kaggle_Project4/data/test.csv', header=T)
 dfTrain[dfTrain==-999.0] <- 0
 dfTest[dfTest==-999.0] <- 0
 testId = dfTest$EventId
@@ -93,6 +94,7 @@ auc_val$auc
 
 ###### Apply fitted model to test data
 gbmTestPred <- predict(m_gbm, newdata=test, type="prob")
+write.csv(as.data.frame(gbmTestPred), "Submissions/gbm_prob.csv")
 predicted <- rep("b",550000)
 predicted[gbmTestPred[,2]>=threshold] <- "s"
 weightRank = rank(gbmTestPred[,2], ties.method= "random")
