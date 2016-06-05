@@ -41,38 +41,43 @@ output:
 \includegraphics[scale = .5]{Images/corrplot.png}
 \end{center}
 
-<<<<<<< HEAD
 > - There are several variables with strong covariance among the 33 variables. 
 
-##Choice of AUC as model fit metric
+##Initial Feature Engineering 
+\begin{center}
+\includegraphics[scale = .2]{Images/log_transformed.jpg}
+\includegraphics[scale = .2]{Images/pre_log_transformed.jpg}
+\end{center}
+
+> -  14 Features with long-tailed distributions were log transformed to reduce the positive skew towards smaller values, generating a more uniform distribution.. E.g. DER_mass_jet_jet: The invariant mass of the two jets.
+
+##Logistic Regression - Variable Importance
+\begin{center}
+\includegraphics[scale = .17]{Images/Sat_Model-VarImp.jpg}
+\includegraphics[scale = .17]{Images/Stepwise-VarImp.jpg}
+\end{center}
+
+> -  Saturated Model vs. Stepwise BIC Model
+
+##Logistic Regression - Analysis
+\begin{center}
+\includegraphics[scale = .1]{Images/residual_plot-logistic.jpg}
+
+\includegraphics[scale = .1]{Images/AUC-logistic.jpg}
+\end{center}
+
+> -  Saturated Model: R.Squared: 0.20227; Stepwise BIC model: R.Squared: 0.20223.
+> -  Chi-Squared P-value: 3.77 e-16 (Saturated) and 3.90 e-16 (Stepwise).
+> -  AUC plots are also not very different from one another.
+
+##Choice of AUC as model fit metric 
 \begin{center}
 \includegraphics[scale = .4]{Images/RF_AUC_plot.jpeg}
 \end{center}
 
-> - Maximizes the true positive rate while also minimizes the false positive rate. 
-> - Produces a smooth and continuous function unlike AMS.
-=======
-##Initial Feature Engineering 
-\includegraphics[scale = .8]{Images/log transformed .jpeg}
-\includegraphics[scale = .8]{Images/pre log transformed.jpeg}
-> -  14 Features with long-tailed distributions were log transformed to reduce the positive skew towards smaller values, generating a more uniform distribution.. E.g. DER_mass_jet_jet: The invariant mass of the two jets 
-
-##Logistic Regression - Variable Importance 
-\includegraphics[scale = .8]{Images/Sat Model - VarImp.jpeg}
-\includegraphics[scale = .8]{Images/Stepwise - VarImp.jpeg}
-> -  Saturated Model vs. Stepwise BIC Model
-
-##Logistic Regression - Analysis
-\includegraphics[scale = .8]{Images/residual plot- logistic.jpeg}
-\includegraphics[scale = .8]{Images/AUC - logistic.jpeg}
-> -  Saturated Model: R.Squared: 0.20227; Stepwise BIC model: R.Squared: 0.20223
-> -  Chi-Squared P-value: 3.77 e-16 (Saturated) and 3.90 e-16 (Stepwise)
-> -  AUC plots are also not very different from one another
-
-##Choice of AUC as model fit metric 
-\includegraphics[scale = .8]{Images/RF AUC plot.jpeg}
 > -  Maximizes the true positive rate while also minimizes the false positive rate. 
->>>>>>> b718958094098cceaad0518f46e434f4cbba3d08
+
+> -  Produces a smooth and continuous function unlike AMS.
 
 #Models
 ##Our models
