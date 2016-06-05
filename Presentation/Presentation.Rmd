@@ -1,5 +1,5 @@
 ---
-title: "From Description to Ensemble"
+title: "Higgs Boson dataset: From Description to Ensemble"
 author: "Robert Castellano, Yannick Kimmel, Wanda Wang, Ho Fai Wong"
 output: 
   beamer_presentation:
@@ -7,7 +7,31 @@ output:
 ---
 \includegraphics[scale = .15]{Images/Higgs.jpg}
 
-#First section title
+
+#Exploratory data analysis
+##Sparse dataset
+\includegraphics[scale = .8]{Images/missingnessandjets.jpg}
+> -  Jet number can be treated as a factor for missingness
+
+##Principal component analysis
+\includegraphics[scale = .8]{Images/PC1PC2.jpeg}
+\includegraphics[scale = .8]{Images/PCAanalysis.png}
+> -  PCA shows that derived mass and label have a very strong relationship.
+
+##Mass as a predictor of Higgs Boson presence
+\includegraphics[scale = .8]{Images/sciencemass.png}
+\includegraphics[scale = .8]{Images/density.jpeg}
+> -  Derived mass of Higgs Boson is different from other Bosons and subatomic particles
+> -  Simulated dataset increases signal, and must be offset using weights
+
+##Correlation matrix
+\includegraphics[scale = .8]{Images/corrplot.png}
+> -  There are several variables with strong covariance among the 33 variables. 
+
+##Choice of AUC as model fit metric 
+\includegraphics[scale = .8]{Images/RF AUC plot.jpeg}
+> -  Maximizes the true positive rate while also minimizes the false positive rate. 
+
 
 #Models
 ##Our models
@@ -26,6 +50,8 @@ output:
 \pause
 \item Performed 5-fold CV to tune parameters.
 \begin{itemize}
+  \item 20% of training data for mtry gride of 1, 2, 3, 6, 9
+  \item 80% of training data for mtry gride of 4, 5, 6, 7, 8
   \item mtry = 5
 \end{itemize}
 \pause
