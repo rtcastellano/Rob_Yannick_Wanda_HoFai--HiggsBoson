@@ -49,6 +49,8 @@ output:
 \includegraphics[scale = .8]{Images/RF AUC plot.jpeg}
 > -  Maximizes the true positive rate while also minimizes the false positive rate. 
 > -  Produces a smooth and continuous function unlike AMS.
+
+
 #Models
 ##Our models
 
