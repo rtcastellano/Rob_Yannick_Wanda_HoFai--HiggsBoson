@@ -96,8 +96,8 @@ output:
 \pause
 \item Performed 5-fold CV to tune parameters.
 \begin{itemize}
-  \item 20% of training data for mtry gride of 1, 2, 3, 6, 9
-  \item 80% of training data for mtry gride of 4, 5, 6, 7, 8
+  \item 20\% of training data for mtry gride of 1, 2, 3, 6, 9
+  \item 80\% of training data for mtry gride of 4, 5, 6, 7, 8
   \item mtry = 5
 \end{itemize}
 \pause
